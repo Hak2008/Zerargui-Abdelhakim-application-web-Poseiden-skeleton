@@ -21,7 +21,11 @@ public class TradeTests {
 
 	@Test
 	public void tradeTest() {
-		Trade trade = new Trade("Trade Account", "Type");
+		Trade trade = new Trade(); // Utilisation du constructeur par défaut
+
+		// Setters pour définir les valeurs nécessaires
+		trade.setAccount("Trade Account");
+		trade.setType("Type");
 
 		// Save
 		trade = tradeRepository.save(trade);
