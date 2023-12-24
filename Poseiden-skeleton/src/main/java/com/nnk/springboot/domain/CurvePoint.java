@@ -2,7 +2,8 @@ package com.nnk.springboot.domain;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import javax.validation.constraints.NotNull;
+
+import javax.validation.constraints.NotBlank;
 import java.sql.Timestamp;
 
 @Data
@@ -10,21 +11,23 @@ import java.sql.Timestamp;
 @Table(name = "curvepoint")
 public class CurvePoint {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @NotNull(message = "CurveId is mandatory")
+    @NotBlank(message = "CurveId is mandatory")
+    @Column(name = "curveId")
     private Integer curveId;
 
     private Timestamp asOfDate;
 
-    @NotNull(message = "Term is mandatory")
+    @NotBlank(message = "Term is mandatory")
+    @Column(name = "term")
     private Double term;
 
-    @NotNull(message = "Value is mandatory")
+    @NotBlank(message = "Value is mandatory")
+    @Column(name = "value")
     private Double value;
 
-    @Temporal(TemporalType.TIMESTAMP)
     private Timestamp creationDate;
 
 }
