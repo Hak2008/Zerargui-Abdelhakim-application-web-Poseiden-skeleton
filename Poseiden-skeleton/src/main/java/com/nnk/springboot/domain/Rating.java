@@ -13,19 +13,19 @@ public class Rating {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @NotBlank(message = "Moody's Rating is mandatory")
+    @NotBlank(message = "Moodys rating is mandatory")
     @Column(name = "moodysRating")
     private String moodysRating;
 
-    @NotBlank(message = "S&P Rating is mandatory")
+    @NotBlank(message = "S and P rating is mandatory")
     @Column(name = "sandPRating")
     private String sandPRating;
 
-    @NotBlank(message = "Fitch Rating is mandatory")
+    @NotBlank(message = "Fitch rating is mandatory")
     @Column(name = "fitchRating")
     private String fitchRating;
 
-    @NotBlank(message = "Order Number is mandatory")
+    @NotBlank(message = "Order number is mandatory")
     @Column(name = "orderNumber")
     private Integer orderNumber;
 }

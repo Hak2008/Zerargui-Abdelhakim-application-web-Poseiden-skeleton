@@ -16,30 +16,30 @@
 	<div class="row">
 		<form action="#" th:action="@{/rating/update/{id}(id=${rating.id})}" th:object="${rating}" method="post" class="form-horizontal" style="width: 100%">
 			<div class="form-group">
-				<label for="moodysRating" class="col-sm-2 control-label">MoodysRating</label>
+				<label for="moodysRating" class="col-sm-2 control-label">Moodys rating</label>
 				<div class="col-sm-10">
-					<input type="number" th:field="*{moodysRating}" id="moodysRating" placeholder="Moodys Rating" class="col-4">
+					<input type="number" th:field="*{moodysRating}" id="moodysRating" placeholder="Moodys rating" class="col-4" required title="Moodys rating is mandatory">
 					<p class="text-danger" th:if="${#fields.hasErrors('moodysRating')}" th:errors="*{moodysRating}"></p>
 				</div>
 			</div>
 			<div class="form-group">
-				<label for="sandPRating" class="col-sm-2 control-label">SandPRating</label>
+				<label for="sandPRating" class="col-sm-2 control-label">S and P rating</label>
 				<div class="col-sm-10">
-					<input type="number" th:field="*{sandPRating}" id="sandPRating" placeholder="S and P Rating" class="col-4">
+					<input type="number" th:field="*{sandPRating}" id="sandPRating" placeholder="S and P rating" class="col-4" required title="S and P rating is mandatory">
 					<p class="text-danger" th:if="${#fields.hasErrors('sandPRating')}" th:errors="*{sandPRating}"></p>
 				</div>
 			</div>
 			<div class="form-group">
-				<label for="fitchRating" class="col-sm-2 control-label">FitchRating</label>
+				<label for="fitchRating" class="col-sm-2 control-label">Fitch rating</label>
 				<div class="col-sm-10">
-					<input type="number" th:field="*{fitchRating}" id="fitchRating" placeholder="Fitch Rating" class="col-4">
+					<input type="number" th:field="*{fitchRating}" id="fitchRating" placeholder="Fitch rating" class="col-4" required title="Fitch rating is mandatory">
 					<p class="text-danger" th:if="${#fields.hasErrors('fitchRating')}" th:errors="*{fitchRating}"></p>
 				</div>
 			</div>
 			<div class="form-group">
-				<label for="orderNumber" class="col-sm-2 control-label">Order</label>
+				<label for="orderNumber" class="col-sm-2 control-label">Order number</label>
 				<div class="col-sm-10">
-					<input type="text" th:field="*{orderNumber}" id="orderNumber" placeholder="Order Number" class="col-4">
+					<input type="text" th:field="*{orderNumber}" id="orderNumber" placeholder="Order number" class="col-4" required title="Order number is mandatory">
 					<p class="text-danger" th:if="${#fields.hasErrors('orderNumber')}" th:errors="*{orderNumber}"></p>
 				</div>
 			</div>

@@ -7,8 +7,10 @@ C:\Users\hakim\JavaDA_PROJECT7_RESTAPI\JavaDA_PROJECT7_RESTAPI\Poseiden-skeleton
 C:\Users\hakim\JavaDA_PROJECT7_RESTAPI\JavaDA_PROJECT7_RESTAPI\Poseiden-skeleton\src\main\java\com\nnk\springboot\controllers\HomeController.java
 C:\Users\hakim\JavaDA_PROJECT7_RESTAPI\JavaDA_PROJECT7_RESTAPI\Poseiden-skeleton\src\main\java\com\nnk\springboot\controllers\BidListController.java
 C:\Users\hakim\JavaDA_PROJECT7_RESTAPI\JavaDA_PROJECT7_RESTAPI\Poseiden-skeleton\src\main\java\com\nnk\springboot\repositories\RatingRepository.java
+C:\Users\hakim\JavaDA_PROJECT7_RESTAPI\JavaDA_PROJECT7_RESTAPI\Poseiden-skeleton\src\main\java\com\nnk\springboot\config\CustomUserDetailsService.java
 C:\Users\hakim\JavaDA_PROJECT7_RESTAPI\JavaDA_PROJECT7_RESTAPI\Poseiden-skeleton\src\main\java\com\nnk\springboot\controllers\RatingController.java
 C:\Users\hakim\JavaDA_PROJECT7_RESTAPI\JavaDA_PROJECT7_RESTAPI\Poseiden-skeleton\src\main\java\com\nnk\springboot\controllers\RuleNameController.java
+C:\Users\hakim\JavaDA_PROJECT7_RESTAPI\JavaDA_PROJECT7_RESTAPI\Poseiden-skeleton\src\main\java\com\nnk\springboot\config\CustomPhysicalNamingStrategy.java
 C:\Users\hakim\JavaDA_PROJECT7_RESTAPI\JavaDA_PROJECT7_RESTAPI\Poseiden-skeleton\src\main\java\com\nnk\springboot\controllers\LoginController.java
 C:\Users\hakim\JavaDA_PROJECT7_RESTAPI\JavaDA_PROJECT7_RESTAPI\Poseiden-skeleton\src\main\java\com\nnk\springboot\domain\CurvePoint.java
 C:\Users\hakim\JavaDA_PROJECT7_RESTAPI\JavaDA_PROJECT7_RESTAPI\Poseiden-skeleton\src\main\java\com\nnk\springboot\repositories\TradeRepository.java

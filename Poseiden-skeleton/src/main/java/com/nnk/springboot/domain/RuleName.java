@@ -29,7 +29,7 @@ public class RuleName {
     @Column(name = "template")
     private String template;
 
-    @NotBlank(message = "SQL String is mandatory")
+    @NotBlank(message = "SQL Str is mandatory")
     @Column(name = "sqlStr")
     private String sqlStr;
 
