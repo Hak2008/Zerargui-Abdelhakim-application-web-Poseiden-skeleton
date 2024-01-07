@@ -3,6 +3,8 @@ package com.nnk.springboot.controllers;
 import com.nnk.springboot.domain.User;
 import com.nnk.springboot.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,9 +13,9 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
-
 @Controller
 public class UserController {
+
     @Autowired
     private UserRepository userRepository;
 
@@ -21,14 +23,17 @@ public class UserController {
     private BCryptPasswordEncoder passwordEncoder;
 
     @RequestMapping("/user/list")
-    public String home(Model model)
-    {
+    public String home(Model model) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication != null) {
+            model.addAttribute("username", authentication.getName());
+        }
         model.addAttribute("users", userRepository.findAll());
         return "user/list";
     }
 
     @GetMapping("/user/add")
-    public String addUser(@ModelAttribute("user") User user) {
+    public String addUserForm(User user) {
         return "user/add";
     }
 
@@ -50,7 +55,6 @@ public class UserController {
         return "user/add";
     }
 
-
     @GetMapping("/user/update/{id}")
     public String showUpdateForm(@PathVariable("id") Integer id, Model model) {
         User user = userRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Invalid user Id:" + id));
@@ -71,7 +75,7 @@ public class UserController {
         String newPassword = user.getPassword();
 
         if (newPassword != null && !newPassword.isEmpty() && !newPassword.equals(existingUser.getPassword())) {
-            // Appliquer la contrainte uniquement si le mot de passe a été modifié
+            // Apply constraint only if password has been changed
             String passwordRegex = "^(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$";
             if (!newPassword.matches(passwordRegex)) {
                 result.rejectValue("password", "user.password.invalid", "Password must have at least 8 characters, one uppercase letter, one digit, and one special character.");
@@ -79,7 +83,7 @@ public class UserController {
             }
             user.setPassword(passwordEncoder.encode(newPassword));
         } else {
-            // Utiliser l'ancien mot de passe si le champ est vide
+            // Use old password if field is empty
             user.setPassword(existingUser.getPassword());
         }
 

@@ -23,9 +23,9 @@ public class UserTests {
     public void userTest() {
         User user = new User();
 
-        // Setters pour définir les valeurs nécessaires
+        // Setters to set the necessary values
         user.setUsername("Tom");
-        user.setPassword("123");
+        user.setPassword("TomHenri123@");
         user.setFullname("Henri");
         user.setRole("USER");
 

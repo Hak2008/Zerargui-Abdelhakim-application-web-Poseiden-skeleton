@@ -17,12 +17,12 @@ import javax.validation.Valid;
 
 @Controller
 public class RuleNameController {
+
     @Autowired
     private RuleNameRepository ruleNameRepository;
 
     @RequestMapping("/ruleName/list")
-    public String home(Model model)
-    {
+    public String home(Model model) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (authentication != null) {
             model.addAttribute("username", authentication.getName());
@@ -32,14 +32,13 @@ public class RuleNameController {
     }
 
     @GetMapping("/ruleName/add")
-    public String addRuleForm(RuleName bid) {
+    public String addRuleForm(RuleName rule) {
         return "ruleName/add";
     }
 
     @PostMapping("/ruleName/validate")
     public String validate(@Valid RuleName ruleName, BindingResult result, Model model) {
         if (!result.hasErrors()) {
-
             ruleNameRepository.save(ruleName);
             model.addAttribute("ruleName", ruleNameRepository.findAll());
             return "redirect:/ruleName/list";

@@ -3,12 +3,12 @@ package com.nnk.springboot.domain;
 import jakarta.persistence.*;
 import lombok.Data;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Pattern;
 
 @Data
 @Entity
 @Table(name = "users")
 public class User {
+
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     @Column(name = "Id")
@@ -29,5 +29,4 @@ public class User {
     @NotBlank(message = "Role is mandatory")
     @Column(name = "role")
     private String role;
-
 }

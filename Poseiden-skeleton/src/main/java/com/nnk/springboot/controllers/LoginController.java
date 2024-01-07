@@ -2,7 +2,10 @@ package com.nnk.springboot.controllers;
 
 import com.nnk.springboot.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -17,7 +20,7 @@ public class LoginController {
     @GetMapping("login")
     public ModelAndView login() {
         ModelAndView mav = new ModelAndView();
-        mav.setViewName("login");
+        mav.setViewName("home");
         return mav;
     }
 
@@ -30,7 +33,11 @@ public class LoginController {
     }
 
     @GetMapping("error")
-    public ModelAndView error() {
+    public ModelAndView error(Model model) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication != null) {
+            model.addAttribute("username", authentication.getName());
+        }
         ModelAndView mav = new ModelAndView();
         String errorMessage= "You are not authorized for the requested data.";
         mav.addObject("errorMsg", errorMessage);

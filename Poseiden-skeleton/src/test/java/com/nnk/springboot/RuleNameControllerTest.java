@@ -14,7 +14,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import static org.mockito.Mockito.when;
 
 @WebMvcTest(RuleNameController.class)
-@WithMockUser(username = "testuser", password = "testpassword", roles = "USER")
+@WithMockUser(username = "testuser", password = "Testpassword123@", roles = "USER")
 public class RuleNameControllerTest {
 
     @Autowired
@@ -46,5 +46,4 @@ public class RuleNameControllerTest {
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.view().name("ruleName/update"));
     }
-
 }

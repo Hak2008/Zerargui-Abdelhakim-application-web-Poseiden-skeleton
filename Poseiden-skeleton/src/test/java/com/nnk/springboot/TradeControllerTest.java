@@ -14,7 +14,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import static org.mockito.Mockito.when;
 
 @WebMvcTest(TradeController.class)
-@WithMockUser(username = "testuser", password = "testpassword", roles = "USER")
+@WithMockUser(username = "testuser", password = "Testpassword123@", roles = "USER")
 public class TradeControllerTest {
 
     @Autowired
@@ -46,6 +46,5 @@ public class TradeControllerTest {
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.view().name("trade/update"));
     }
-
 }
 

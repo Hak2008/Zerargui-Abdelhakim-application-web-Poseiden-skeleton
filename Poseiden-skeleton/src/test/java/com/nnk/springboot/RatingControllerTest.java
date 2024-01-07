@@ -11,12 +11,10 @@ import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
-
-import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
 @WebMvcTest(RatingController.class)
-@WithMockUser(username = "testuser", password = "testpassword", roles = "USER")
+@WithMockUser(username = "testuser", password = "Testpassword123@", roles = "USER")
 public class RatingControllerTest {
 
     @Autowired
@@ -48,5 +46,4 @@ public class RatingControllerTest {
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.view().name("rating/update"));
     }
-
 }

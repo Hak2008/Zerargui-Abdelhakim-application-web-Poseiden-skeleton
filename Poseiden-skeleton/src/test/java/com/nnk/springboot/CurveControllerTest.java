@@ -14,7 +14,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import static org.mockito.Mockito.when;
 
 @WebMvcTest(CurveController.class)
-@WithMockUser(username = "testuser", password = "testpassword", roles = "USER")
+@WithMockUser(username = "testuser", password = "Testpassword123@", roles = "USER")
 public class CurveControllerTest {
 
     @Autowired
@@ -46,6 +46,5 @@ public class CurveControllerTest {
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.view().name("curvePoint/update"));
     }
-
 }
 

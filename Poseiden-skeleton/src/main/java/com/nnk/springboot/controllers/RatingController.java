@@ -17,12 +17,12 @@ import javax.validation.Valid;
 
 @Controller
 public class RatingController {
+
     @Autowired
     private RatingRepository ratingRepository;
 
     @RequestMapping("/rating/list")
-    public String home(Model model)
-    {
+    public String home(Model model) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (authentication != null) {
             model.addAttribute("username", authentication.getName());
@@ -39,7 +39,6 @@ public class RatingController {
     @PostMapping("/rating/validate")
     public String validate(@Valid Rating rating, BindingResult result, Model model) {
         if (!result.hasErrors()) {
-
             ratingRepository.save(rating);
             model.addAttribute("rating", ratingRepository.findAll());
             return "redirect:/rating/list";

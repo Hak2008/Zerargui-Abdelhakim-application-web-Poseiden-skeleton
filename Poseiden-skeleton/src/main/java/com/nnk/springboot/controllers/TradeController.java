@@ -17,12 +17,12 @@ import javax.validation.Valid;
 
 @Controller
 public class TradeController {
+
     @Autowired
     private TradeRepository tradeRepository;
 
     @RequestMapping("/trade/list")
-    public String home(Model model)
-    {
+    public String home(Model model) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (authentication != null) {
             model.addAttribute("username", authentication.getName());
@@ -32,14 +32,13 @@ public class TradeController {
     }
 
     @GetMapping("/trade/add")
-    public String addTradeForm(Trade bid) {
+    public String addTradeForm(Trade trade) {
         return "trade/add";
     }
 
     @PostMapping("/trade/validate")
     public String validate(@Valid Trade trade, BindingResult result, Model model) {
         if (!result.hasErrors()) {
-
         tradeRepository.save(trade);
         model.addAttribute("trades", tradeRepository.findAll());
         return "redirect:/trade/list";

@@ -17,12 +17,12 @@ import javax.validation.Valid;
 
 @Controller
 public class CurveController {
+
     @Autowired
     private CurvePointRepository curvePointRepository;
 
     @RequestMapping("/curvePoint/list")
-    public String home(Model model)
-    {
+    public String home(Model model) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (authentication != null) {
             model.addAttribute("username", authentication.getName());
@@ -32,14 +32,13 @@ public class CurveController {
     }
 
     @GetMapping("/curvePoint/add")
-    public String addCurveForm(CurvePoint bid) {
+    public String addCurveForm(CurvePoint curve) {
         return "curvePoint/add";
     }
 
     @PostMapping("/curvePoint/validate")
     public String validate(@Valid CurvePoint curvePoint, BindingResult result, Model model) {
         if (!result.hasErrors()) {
-
             curvePointRepository.save(curvePoint);
             model.addAttribute("curvePoint", curvePointRepository.findAll());
             return "redirect:/curvePoint/list";

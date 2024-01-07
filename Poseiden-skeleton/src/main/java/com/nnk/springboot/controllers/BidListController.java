@@ -15,9 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.validation.Valid;
 
-
 @Controller
 public class BidListController {
+
     @Autowired
     private BidListRepository bidListRepository;
 
@@ -40,7 +40,6 @@ public class BidListController {
     @PostMapping("/bidList/validate")
     public String validate(@Valid BidList bidList, BindingResult result, Model model) {
         if (!result.hasErrors()) {
-
             bidListRepository.save(bidList);
             model.addAttribute("bidLists", bidListRepository.findAll());
             return "redirect:/bidList/list";

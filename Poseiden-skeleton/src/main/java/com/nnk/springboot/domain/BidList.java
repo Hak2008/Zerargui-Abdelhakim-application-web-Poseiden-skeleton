@@ -5,10 +5,12 @@ import lombok.Data;
 
 import javax.validation.constraints.NotBlank;
 import java.sql.Timestamp;
+
 @Data
 @Entity
 @Table(name = "bidlist")
 public class BidList {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "BidListId")
