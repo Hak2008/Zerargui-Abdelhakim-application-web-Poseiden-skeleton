@@ -1,4 +1,4 @@
-package com.nnk.springboot.config;
+package com.nnk.springboot.strategy;
 
 import org.hibernate.boot.model.naming.Identifier;
 import org.hibernate.boot.model.naming.PhysicalNamingStrategy;

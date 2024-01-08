@@ -1,5 +1,6 @@
-package com.nnk.springboot.config.security;
+package com.nnk.springboot.security.config;
 
+import com.nnk.springboot.security.service.CustomUserDetailsService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
